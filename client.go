@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Nerzal/gocloak/pkg/jwx"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/mirpl/gocloak/pkg/jwx"
 	"gopkg.in/resty.v1"
 )
 
