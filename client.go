@@ -775,7 +775,7 @@ func (client *gocloak) GetGroup(token string, realm string, groupID string) (*Gr
 	var result Group
 	resp, err := getRequestWithBearerAuth(token).
 		SetResult(&result).
-		Get(client.getAdminRealmURL(realm, "group", groupID))
+		Get(client.getAdminRealmURL(realm, "groups", groupID))
 
 	err = checkForError(resp, err)
 	if err != nil {

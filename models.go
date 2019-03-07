@@ -160,10 +160,11 @@ type ExecuteActionsEmail struct {
 
 // Group is a Group
 type Group struct {
-	ID        string        `json:"id,omitempty"`
-	Name      string        `json:"name,omitempty"`
-	Path      string        `json:"path,omitempty"`
-	SubGroups []interface{} `json:"subGroups,omitempty"`
+	ID         string              `json:"id,omitempty"`
+	Name       string              `json:"name,omitempty"`
+	Path       string              `json:"path,omitempty"`
+	SubGroups  []interface{}       `json:"subGroups,omitempty"`
+	Attributes map[string][]string `json:"attributes,omitempty"`
 }
 
 // Role is a role
