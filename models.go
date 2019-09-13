@@ -137,6 +137,13 @@ type UserGroup struct {
 	Path string `json:"path,omitempty"`
 }
 
+// UserGroupLink is a UserGroupLink
+type UserGroupLink struct {
+	Realm   string `json:"realm,omitempty"`
+	UserID  string `json:"id,omitempty"`
+	GroupID string `json:"name,omitempty"`
+}
+
 // GetUsersParams represents the optional parameters for getting users
 type GetUsersParams struct {
 	BriefRepresentation *bool  `query:"briefRepresentation,omitempty"`
