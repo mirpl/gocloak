@@ -52,7 +52,7 @@ type GoCloak interface {
 
 	// UpdateUser updates the given user
 	UpdateUser(accessToken string, realm string, user User) error
-	// JoinUserIntoGroup joins user into a group
+	// UserGroupJoin joins user into a group
 	UserGroupJoin(token string, realm string, userGroupLink UserGroupLink) error
 	// UpdateGroup updates the given group
 	UpdateGroup(accessToken string, realm string, group Group) error
