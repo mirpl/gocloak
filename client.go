@@ -491,6 +491,20 @@ func (client *gocloak) UpdateUser(token string, realm string, user User) error {
 	return nil
 }
 
+// UserGroupJoin joins User into a Group
+func (client *gocloak) UserGroupJoin(token string, realm string, userGroupLink UserGroupLink) error {
+	resp, err := getRequestWithBearerAuth(token).
+		SetBody(userGroupLink).
+		Put(client.getAdminRealmURL(realm, "users", userGroupLink.UserID, "groups", userGroupLink.GroupID))
+
+	err = checkForError(resp, err)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // UpdateUser creates a new user
 func (client *gocloak) UpdateGroup(token string, realm string, group Group) error {
 	resp, err := getRequestWithBearerAuth(token).
