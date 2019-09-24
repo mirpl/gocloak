@@ -505,6 +505,20 @@ func (client *gocloak) UserGroupJoin(token string, realm string, userGroupLink U
 	return nil
 }
 
+// UserGroupLeave leaves the User from the group
+func (client *gocloak) UserGroupLeave(token string, realm string, userGroupLink UserGroupLink) error {
+	resp, err := getRequestWithBearerAuth(token).
+		SetBody(userGroupLink).
+		Delete(client.getAdminRealmURL(realm, "users", userGroupLink.UserID, "groups", userGroupLink.GroupID))
+
+	err = checkForError(resp, err)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // UpdateUser creates a new user
 func (client *gocloak) UpdateGroup(token string, realm string, group Group) error {
 	resp, err := getRequestWithBearerAuth(token).
