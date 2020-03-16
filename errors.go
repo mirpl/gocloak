@@ -1,8 +1,7 @@
 package gocloak
 
-// ObjectAllreadyExists is used when keycloak answers with 409
-type ObjectAllreadyExists struct{}
-
-func (o *ObjectAllreadyExists) Error() string {
-	return "Conflict: Object allready exists"
+// HTTPErrorResponse is a model of an error response
+type HTTPErrorResponse struct {
+	ErrorMessage string `json:"errorMessage,omitempty"`
+	Error        string `json:"error,omitempty"`
 }
