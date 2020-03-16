@@ -519,7 +519,7 @@ func (client *gocloak) CreateClientScope(token, realm string, scope ClientScope)
 func (client *gocloak) UserGroupJoin(token string, realm string, userGroupLink UserGroupLink) error {
 	const errMessage = "could not join user into a group"
 
-	resp, err := getRequestWithBearerAuth(token).
+	resp, err := client.getRequestWithBearerAuth(token).
 		SetBody(userGroupLink).
 		Put(client.getAdminRealmURL(realm, "users", userGroupLink.UserID, "groups", userGroupLink.GroupID))
 
@@ -535,7 +535,7 @@ func (client *gocloak) UserGroupJoin(token string, realm string, userGroupLink U
 func (client *gocloak) UserGroupLeave(token string, realm string, userGroupLink UserGroupLink) error {
 	const errMessage = "could not remove the user from a group"
 
-	resp, err := getRequestWithBearerAuth(token).
+	resp, err := client.getRequestWithBearerAuth(token).
 		SetBody(userGroupLink).
 		Delete(client.getAdminRealmURL(realm, "users", userGroupLink.UserID, "groups", userGroupLink.GroupID))
 
