@@ -245,8 +245,6 @@ type GoCloak interface {
 	GetUsersByClientRoleName(token string, realm string, clientID string, roleName string, params GetUsersByRoleParams) ([]*User, error)
 	// SetPassword sets a new password for the user with the given id. Needs elevated privileges
 	SetPassword(token string, userID string, realm string, password string, temporary bool) error
-	// UpdateUser updates the given user
-	UpdateUser(accessToken string, realm string, user User) error
 	// AddUserToGroup puts given user to given group
 	AddUserToGroup(token string, realm string, userID string, groupID string) error
 	// DeleteUserFromGroup deletes given user from given group
